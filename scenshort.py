@@ -1,13 +1,12 @@
-#-- include('examples/showgrabfullscreen.py') --#
 import pyscreenshot as ImageGrab
 import time
 import boto3
 
+#Importing credentials 
 from secrets import *
 
 
 if __name__ == "__main__":
-    # fullscreen
     im=ImageGrab.grab()
     timestr = time.strftime("%Y%m%d-%H%M%S")
     ImageGrab.grab_to_file(timestr +'my.png')
@@ -23,10 +22,3 @@ if __name__ == "__main__":
     s3.Bucket('screenshot-python').put_object(Key=image_name, Body=data)
 
     print ("Done")
-    sleep(20)
-
-
-    
-    
-    
-    
